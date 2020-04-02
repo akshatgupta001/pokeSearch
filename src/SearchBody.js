@@ -1,15 +1,27 @@
 import React from 'react';
-import {View, Text} from 'react-native'; 
+import {ScrollView,View, Text} from 'react-native'; 
 
-class searchBody extends React.Component{
+class SearchBody extends React.Component{
 	render(){
+		var pokemon = this.props.data;
+		if(!pokemon){
+			return <View />
+		}
 		return(
-			<View>
-				<Text> This is search Data </Text> 
-			</View>
+			<ScrollView>
+				<Text style = {styles.header}> #{pokemon.id} - {pokemon.name.toUpperCase()} </Text> 
+			</ScrollView>
+
 
 		)
 	}
 }
 
-export default searchBody ;
+const styles = {
+	header : {
+		fontSize : 30,
+		color : 'red',
+		textAlign : 'center'
+	}
+}
+export default SearchBody ;
